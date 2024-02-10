@@ -25,4 +25,24 @@ public class ProductManager implements ProductService {
         productDao.save(product);
         return new SuccessResult(product.getProductName()+" ugurla save olundu");
     }
+
+    @Override
+    public DataResult<Product> findByProductName(String productName) {
+        Product product = this.productDao.findByProductName(productName);
+        if (product == null) {
+            return new ErrorDataResult<>(productName+" kimdi ə",product);
+        } else {
+            return new SuccessDataResult<>("tafdin qaqa",product);
+        }
+    }
+
+    @Override
+    public DataResult<Product> findProductByProductNameAndUnitPrice(String productName, int unitPrice) {
+        Product product = this.productDao.findProductByProductNameAndUnitPrice(productName, unitPrice);
+        if (product == null) {
+            return new ErrorDataResult<>(productName+" kimdi ə",product);
+        } else {
+            return new SuccessDataResult<>("tafdin qaqa",product);
+        }
+    }
 }
