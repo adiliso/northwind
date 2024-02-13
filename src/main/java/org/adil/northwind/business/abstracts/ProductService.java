@@ -12,7 +12,7 @@ public interface ProductService {
     DataResult<Product> findByProductName(String productName );
     DataResult<Product> findProductByProductNameAndUnitPrice(String productName, int unitPrice);
     DataResult<List<Product>> findProductByCategoryId(int categoryId);
-    DataResult<List<Product>> findProductsByUnitPriceBefore(int unitPrice);
+    DataResult<List<Product>> findProductByUnitPriceIsLessThan(int unitPrice);
 
 }
 

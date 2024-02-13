@@ -48,7 +48,7 @@ public class ProductManager implements ProductService {
     @Override
     public DataResult<List<Product>> findProductByCategoryId(int categoryId) {
         List<Product> products = this.productDao.findProductByCategoryId(categoryId);
-        if (products ==null) {
+        if (products.isEmpty()) {
             return new ErrorDataResult<>("Bu categoryId sistemde movcud deyil.",products);
         } else {
             return new SuccessDataResult<>("Products ugurla tapildi.",products);
@@ -56,9 +56,9 @@ public class ProductManager implements ProductService {
     }
 
     @Override
-    public DataResult<List<Product>> findProductsByUnitPriceBefore(int unitPrice) {
-        List<Product> products = this.productDao.findProductsByUnitPriceBefore(unitPrice);
-        if (products ==null) {
+    public DataResult<List<Product>> findProductByUnitPriceIsLessThan(int unitPrice) {
+        List<Product> products = this.productDao.findProductByUnitPriceIsLessThan(unitPrice);
+        if (products.isEmpty()) {
             return new ErrorDataResult<>("Bu unit-price sistemde movcud deyil.",products);
         } else {
             return new SuccessDataResult<>("Products ugurla tapildi.",products);

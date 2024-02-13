@@ -37,9 +37,9 @@ public class ProductController {
     public DataResult<List<Product>> findProductByCategoryId(@RequestParam int categoryId){
         return this.productService.findProductByCategoryId(categoryId);
     }
-    @GetMapping("find-products-by-unit-price-before")
+    @GetMapping("find-products-by-unit-price-is-less-than")
     public DataResult<List<Product>> findProductsByUnitPriceBefore(int unitPrice){
-        return this.productService.findProductsByUnitPriceBefore(unitPrice);
+        return this.productService.findProductByUnitPriceIsLessThan(unitPrice);
     }
 
 }
