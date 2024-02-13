@@ -29,8 +29,13 @@ public class ProductController {
     public DataResult<Product> findByProductName(@RequestParam String productName){
         return this.productService.findByProductName(productName);
     }
-    @GetMapping("/find-by-product-name-and-unit-Price")
+    @GetMapping("/find-by-product-name-and-unit-price")
     public DataResult<Product> findProductByProductNameAndUnitPrice(@RequestParam String productName,@RequestParam int unitPrice){
         return this.productService.findProductByProductNameAndUnitPrice(productName,unitPrice);
     }
+    @GetMapping("/find-product-by-category-id")
+    public DataResult<List<Product>> findProductByCategoryId(@RequestParam int categoryId){
+        return this.productService.findProductByCategoryId(categoryId);
+    }
+
 }

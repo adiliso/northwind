@@ -11,5 +11,7 @@ public interface ProductService {
     Result add(Product product);
     DataResult<Product> findByProductName(String productName );
     DataResult<Product> findProductByProductNameAndUnitPrice(String productName, int unitPrice);
+    DataResult<List<Product>> findProductByCategoryId(int categoryId);
+
 }
 

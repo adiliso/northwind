@@ -16,7 +16,6 @@ public class ProductManager implements ProductService {
     private ProductDao productDao;
     @Override
     public DataResult<List<Product>> getAll(){
-//        return new ErrorDataResult<>("DSAD", new ArrayList<>());
         return new SuccessDataResult<>("Ugrulu",this.productDao.findAll());
     }
 
@@ -46,4 +45,13 @@ public class ProductManager implements ProductService {
         }
     }
 
+    @Override
+    public DataResult<List<Product>> findProductByCategoryId(int categoryId) {
+        List<Product> products = this.productDao.findProductByCategoryId(categoryId);
+        if (products ==null) {
+            return new ErrorDataResult<>("Bu categoryId sistemde movcud deyil.",products);
+        } else {
+            return new SuccessDataResult<>("Products ugurla tapildi.",products);
+        }
+    }
 }
