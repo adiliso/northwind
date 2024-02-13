@@ -54,4 +54,14 @@ public class ProductManager implements ProductService {
             return new SuccessDataResult<>("Products ugurla tapildi.",products);
         }
     }
+
+    @Override
+    public DataResult<List<Product>> findProductsByUnitPriceBefore(int unitPrice) {
+        List<Product> products = this.productDao.findProductsByUnitPriceBefore(unitPrice);
+        if (products ==null) {
+            return new ErrorDataResult<>("Bu unit-price sistemde movcud deyil.",products);
+        } else {
+            return new SuccessDataResult<>("Products ugurla tapildi.",products);
+        }
+    }
 }
